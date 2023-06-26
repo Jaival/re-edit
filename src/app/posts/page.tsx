@@ -20,7 +20,7 @@ const Collections = () => {
         <Input placeholder="Search" />
       </div>
       <div className="flex flex-col items-center justify-start gap-10">
-        <div>Recommended Collections</div>
+        <div>Recommended Posts</div>
         <div className="flex flex-col gap-10">
           {postData.map((post: any, idx: number) => (
             <Card
