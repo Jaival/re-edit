@@ -14,7 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-const NewCollections = () => {
+const NewPosts = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-start gap-10 pt-10">
       <div>New Collections</div>
@@ -23,7 +23,7 @@ const NewCollections = () => {
   );
 };
 
-export default NewCollections;
+export default NewPosts;
 
 const formSchema = z.object({
   postName: z.string().min(2, {

@@ -1,19 +1,9 @@
 "use client";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import PostCard from "@/components/postCard";
 import { Input } from "@/components/ui/input";
 import postData from "@/data/post";
-import { useRouter } from "next/navigation";
 
-const Collections = () => {
-  const router = useRouter();
+const Posts = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-start gap-10 pt-10">
       <div className="w-1/2">
@@ -23,31 +13,14 @@ const Collections = () => {
         <div>Recommended Posts</div>
         <div className="flex flex-col gap-10">
           {postData.map((post: any, idx: number) => (
-            <Card
-              onClick={() => router.push(`/collections/${post.id}`)}
-              className="bg-slate-900 hover:shadow-md hover:shadow-slate-900"
+            <PostCard
               key={idx}
-            >
-              <CardHeader>
-                <CardTitle>{post.postName}</CardTitle>
-                <CardDescription>{post.postDescription}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                {/* <div className="container">
-                  <Image
-                    className="h-full"
-                    alt="Post Image"
-                    src={post.imageUrl}
-                    width={250}
-                    height={250}
-                  />
-                </div> */}
-                <p>{post.postDetails}</p>
-              </CardContent>
-              <CardFooter>
-                <p>{post.postFooter}</p>
-              </CardFooter>
-            </Card>
+              postId={post.id}
+              postName={post.postName}
+              postDescription={post.postDescription}
+              postDetails={post.postDetails}
+              postFooter={post.postFooter}
+            />
           ))}
         </div>
       </div>
@@ -55,4 +28,4 @@ const Collections = () => {
   );
 };
 
-export default Collections;
+export default Posts;
